@@ -282,14 +282,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+const header = document.querySelector(`.header`);
+const main = document.querySelector(`main`);
+
 const renderComponent = (container, component, position) => {
   container.insertAdjacentHTML(position, component);
 };
 
-renderComponent(document.querySelector(`.header`), Object(_components_search_js__WEBPACK_IMPORTED_MODULE_0__["default"])(), `beforeEnd`);
-renderComponent(document.querySelector(`.header`), Object(_components_user_info_js__WEBPACK_IMPORTED_MODULE_1__["default"])(), `beforeEnd`);
-renderComponent(document.querySelector(`main`), Object(_components_menu_js__WEBPACK_IMPORTED_MODULE_2__["default"])(), `beforeEnd`);
-renderComponent(document.querySelector(`main`), `<section class="films">
+renderComponent(header, Object(_components_search_js__WEBPACK_IMPORTED_MODULE_0__["default"])(), `beforeEnd`);
+renderComponent(header, Object(_components_user_info_js__WEBPACK_IMPORTED_MODULE_1__["default"])(), `beforeEnd`);
+renderComponent(main, Object(_components_menu_js__WEBPACK_IMPORTED_MODULE_2__["default"])(), `beforeEnd`);
+renderComponent(main, `<section class="films">
     <section class="films-list">
       <h2 class="films-list__title visually-hidden">All movies. Upcoming</h2>
       <div class="films-list__container"></div></section>
@@ -303,14 +306,15 @@ renderComponent(document.querySelector(`main`), `<section class="films">
         <div class="films-list__container">
         </div>
       </section>`, `beforeEnd`);
+const filmContainers = document.querySelectorAll(`.films-list__container`);
 for (let i = 0; i < 5; i++) {
-  renderComponent(document.querySelector(`.films-list__container`), Object(_components_film_card_js__WEBPACK_IMPORTED_MODULE_3__["default"])(), `beforeEnd`);
+  renderComponent(filmContainers[0], Object(_components_film_card_js__WEBPACK_IMPORTED_MODULE_3__["default"])(), `beforeEnd`);
   if (i < 2) {
-    renderComponent(document.querySelectorAll(`.films-list__container`)[1], Object(_components_film_card_js__WEBPACK_IMPORTED_MODULE_3__["default"])(), `beforeEnd`);
-    renderComponent(document.querySelectorAll(`.films-list__container`)[2], Object(_components_film_card_js__WEBPACK_IMPORTED_MODULE_3__["default"])(), `beforeEnd`);
+    renderComponent(filmContainers[1], Object(_components_film_card_js__WEBPACK_IMPORTED_MODULE_3__["default"])(), `beforeEnd`);
+    renderComponent(filmContainers[2], Object(_components_film_card_js__WEBPACK_IMPORTED_MODULE_3__["default"])(), `beforeEnd`);
   }
 }
-renderComponent(document.querySelector(`.films-list__container`), Object(_components_show_more_button_js__WEBPACK_IMPORTED_MODULE_4__["default"])(), `beforeEnd`);
+renderComponent(filmContainers[0], Object(_components_show_more_button_js__WEBPACK_IMPORTED_MODULE_4__["default"])(), `afterEnd`);
 
 
 /***/ })

@@ -4,14 +4,17 @@ import menu from './components/menu.js';
 import filmCard from './components/film-card.js';
 import showMoreBtn from './components/show-more-button.js';
 
+const header = document.querySelector(`.header`);
+const main = document.querySelector(`main`);
+
 const renderComponent = (container, component, position) => {
   container.insertAdjacentHTML(position, component);
 };
 
-renderComponent(document.querySelector(`.header`), searchMarkup(), `beforeEnd`);
-renderComponent(document.querySelector(`.header`), userInfo(), `beforeEnd`);
-renderComponent(document.querySelector(`main`), menu(), `beforeEnd`);
-renderComponent(document.querySelector(`main`), `<section class="films">
+renderComponent(header, searchMarkup(), `beforeEnd`);
+renderComponent(header, userInfo(), `beforeEnd`);
+renderComponent(main, menu(), `beforeEnd`);
+renderComponent(main, `<section class="films">
     <section class="films-list">
       <h2 class="films-list__title visually-hidden">All movies. Upcoming</h2>
       <div class="films-list__container"></div></section>
@@ -25,11 +28,12 @@ renderComponent(document.querySelector(`main`), `<section class="films">
         <div class="films-list__container">
         </div>
       </section>`, `beforeEnd`);
+const filmContainers = document.querySelectorAll(`.films-list__container`);
 for (let i = 0; i < 5; i++) {
-  renderComponent(document.querySelector(`.films-list__container`), filmCard(), `beforeEnd`);
+  renderComponent(filmContainers[0], filmCard(), `beforeEnd`);
   if (i < 2) {
-    renderComponent(document.querySelectorAll(`.films-list__container`)[1], filmCard(), `beforeEnd`);
-    renderComponent(document.querySelectorAll(`.films-list__container`)[2], filmCard(), `beforeEnd`);
+    renderComponent(filmContainers[1], filmCard(), `beforeEnd`);
+    renderComponent(filmContainers[2], filmCard(), `beforeEnd`);
   }
 }
-renderComponent(document.querySelector(`.films-list__container`), showMoreBtn(), `beforeEnd`);
+renderComponent(filmContainers[0], showMoreBtn(), `afterEnd`);
