@@ -119,7 +119,7 @@ const createCard = ({
         <button class="film-card__controls-item button film-card__controls-item--mark-as-watched">Mark as watched</button>
         <button class="film-card__controls-item button film-card__controls-item--favorite">Mark as favorite</button>
       </form>
-    </article>`
+    </article>`;
 };
 /* harmony default export */ __webpack_exports__["default"] = (createCard);
 
@@ -227,13 +227,13 @@ const posters = [`made-for-each-other.png`, `popeye-meets-sinbad.png`, `sagebrus
 names.forEach((item) => {
   allFilmCards.push({
     title: item,
-    rating: `${(Math.random()*10).toFixed(1)}`,
+    rating: `${(Math.random() * 10).toFixed(1)}`,
     info: {
       year: randMaxMin(1900, 2019),
       duration: randMaxMin(6000000, 8000000),
       genre: genres[randMaxMin(0, genres.length)],
       durationInHM() {
-        return `${Math.floor(this.duration/1000/60/60)}h ${Math.round(this.duration/1000/60%60)}m`
+        return `${Math.floor(this.duration / 1000 / 60 / 60)}h ${Math.round(this.duration / 1000 / 60 % 60)}m`;
       },
     },
     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras aliquet varius magna, non porta ligula feugiat eget. Fusce tristique felis at fermentum pharetra. Aliquam id orci ut lectus varius viverra. Nullam nunc ex, convallis sed finibus eget, sollicitudin eget ante. Phasellus eros mauris, condimentum sed nibh vitae, sodales efficitur ipsum. Sed blandit, eros vel aliquam faucibus, purus ex euismod diam, eu luctus nunc ante ut dui. Sed sed nisi sed augue convallis suscipit in sed felis. Aliquam erat volutpat. Nunc fermentum tortor ac porta dapibus. In rutrum ac purus sit amet tempus`,
