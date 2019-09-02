@@ -95,92 +95,33 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-const filmCards = [`<article class="film-card">
-    <h3 class="film-card__title">The Dance of Life</h3>
-    <p class="film-card__rating">8.3</p>
-    <p class="film-card__info">
-      <span class="film-card__year">1929</span>
-      <span class="film-card__duration">1h 55m</span>
-      <span class="film-card__genre">Musical</span>
-    </p>
-    <img src="./images/posters/the-dance-of-life.jpg" alt="" class="film-card__poster">
-    <p class="film-card__description">Burlesque comic Ralph "Skid" Johnson (Skelly), and specialty dancer Bonny Lee King (Carroll), end up together on a cold, rainy night at a tr…</p>
-    <a class="film-card__comments">5 comments</a>
-    <form class="film-card__controls">
-      <button class="film-card__controls-item button film-card__controls-item--add-to-watchlist">Add to watchlist</button>
-      <button class="film-card__controls-item button film-card__controls-item--mark-as-watched">Mark as watched</button>
-      <button class="film-card__controls-item button film-card__controls-item--favorite">Mark as favorite</button>
-    </form>
-  </article>`,
-`<article class="film-card">
-    <h3 class="film-card__title">Sagebrush Trail</h3>
-    <p class="film-card__rating">3.2</p>
-    <p class="film-card__info">
-      <span class="film-card__year">1933</span>
-      <span class="film-card__duration">54m</span>
-      <span class="film-card__genre">Western</span>
-    </p>
-    <img src="./images/posters/sagebrush-trail.jpg" alt="" class="film-card__poster">
-    <p class="film-card__description">Sentenced for a murder he did not commit, John Brant escapes from prison determined to find the real killer. By chance Brant's narrow escap…</p>
-    <a class="film-card__comments">89 comments</a>
-    <form class="film-card__controls">
-      <button class="film-card__controls-item button film-card__controls-item--add-to-watchlist film-card__controls-item--active">Add to watchlist</button>
-      <button class="film-card__controls-item button film-card__controls-item--mark-as-watched">Mark as watched</button>
-      <button class="film-card__controls-item button film-card__controls-item--favorite">Mark as favorite</button>
-    </form>
-  </article>`,
-`<article class="film-card">
-    <h3 class="film-card__title">The Man with the Golden Arm</h3>
-    <p class="film-card__rating">9.0</p>
-    <p class="film-card__info">
-      <span class="film-card__year">1955</span>
-      <span class="film-card__duration">1h 59m</span>
-      <span class="film-card__genre">Drama</span>
-    </p>
-    <img src="./images/posters/the-man-with-the-golden-arm.jpg" alt="" class="film-card__poster">
-    <p class="film-card__description">Frankie Machine (Frank Sinatra) is released from the federal Narcotic Farm in Lexington, Kentucky with a set of drums and a new outlook on…</p>
-    <a class="film-card__comments">18 comments</a>
-    <form class="film-card__controls">
-      <button class="film-card__controls-item button film-card__controls-item--add-to-watchlist">Add to watchlist</button>
-      <button class="film-card__controls-item button film-card__controls-item--mark-as-watched film-card__controls-item--active">Mark as watched</button>
-      <button class="film-card__controls-item button film-card__controls-item--favorite">Mark as favorite</button>
-    </form>
-  </article>`,
-`<article class="film-card">
-    <h3 class="film-card__title">Santa Claus Conquers the Martians</h3>
-    <p class="film-card__rating">2.3</p>
-    <p class="film-card__info">
-      <span class="film-card__year">1964</span>
-      <span class="film-card__duration">1h 21m</span>
-      <span class="film-card__genre">Comedy</span>
-    </p>
-    <img src="./images/posters/santa-claus-conquers-the-martians.jpg" alt="" class="film-card__poster">
-    <p class="film-card__description">The Martians Momar ("Mom Martian") and Kimar ("King Martian") are worried that their children Girmar ("Girl Martian") and Bomar ("Boy Marti…</p>
-    <a class="film-card__comments">465 comments</a>
-    <form class="film-card__controls">
-      <button class="film-card__controls-item button film-card__controls-item--add-to-watchlist">Add to watchlist</button>
-      <button class="film-card__controls-item button film-card__controls-item--mark-as-watched">Mark as watched</button>
-      <button class="film-card__controls-item button film-card__controls-item--favorite film-card__controls-item--active">Mark as favorite</button>
-    </form>
-  </article>`,
-`<article class="film-card">
-    <h3 class="film-card__title">Popeye the Sailor Meets Sindbad the Sailor</h3>
-    <p class="film-card__rating">6.3</p>
-    <p class="film-card__info">
-      <span class="film-card__year">1936</span>
-      <span class="film-card__duration">16m</span>
-      <span class="film-card__genre">Cartoon</span>
-    </p>
-    <img src="./images/posters/popeye-meets-sinbad.png" alt="" class="film-card__poster">
-    <p class="film-card__description">In this short, Sindbad the Sailor (presumably Bluto playing a "role") proclaims himself, in song, to be the greatest sailor, adventurer and…</p>
-    <a class="film-card__comments">0 comments</a>
-    <form class="film-card__controls">
-      <button class="film-card__controls-item button film-card__controls-item--add-to-watchlist film-card__controls-item--active">Add to watchlist</button>
-      <button class="film-card__controls-item button film-card__controls-item--mark-as-watched film-card__controls-item--active">Mark as watched</button>
-      <button class="film-card__controls-item button film-card__controls-item--favorite film-card__controls-item--active">Mark as favorite</button>
-    </form>
-  </article>`];
-/* harmony default export */ __webpack_exports__["default"] = (() => filmCards[Math.floor(Math.random() * 4)]);
+const createCard = ({
+  title,
+  rating,
+  info,
+  comments,
+  description,
+  poster,
+}) => {
+  return `<article class="film-card">
+      <h3 class="film-card__title">${title}</h3>
+      <p class="film-card__rating">${rating}</p>
+      <p class="film-card__info">
+        <span class="film-card__year">${info.year}</span>
+        <span class="film-card__duration">${info.durationInHM()}</span>
+        <span class="film-card__genre">${info.genre}</span>
+      </p>
+      <img src="./images/posters/${poster}" alt="" class="film-card__poster">
+      <p class="film-card__description">${description}</p>
+      <a class="film-card__comments">${comments.length} comments</a>
+      <form class="film-card__controls">
+        <button class="film-card__controls-item button film-card__controls-item--add-to-watchlist">Add to watchlist</button>
+        <button class="film-card__controls-item button film-card__controls-item--mark-as-watched">Mark as watched</button>
+        <button class="film-card__controls-item button film-card__controls-item--favorite">Mark as favorite</button>
+      </form>
+    </article>`
+};
+/* harmony default export */ __webpack_exports__["default"] = (createCard);
 
 
 /***/ }),
@@ -194,11 +135,15 @@ const filmCards = [`<article class="film-card">
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (() => `  <nav class="main-navigation">
+/* harmony default export */ __webpack_exports__["default"] = (({
+  watchlist,
+  history,
+  favorites
+}) => `  <nav class="main-navigation">
     <a href="#all" class="main-navigation__item main-navigation__item--active">All movies</a>
-    <a href="#watchlist" class="main-navigation__item">Watchlist <span class="main-navigation__item-count">13</span></a>
-    <a href="#history" class="main-navigation__item">History <span class="main-navigation__item-count">4</span></a>
-    <a href="#favorites" class="main-navigation__item">Favorites <span class="main-navigation__item-count">8</span></a>
+    <a href="#watchlist" class="main-navigation__item">Watchlist <span class="main-navigation__item-count">${watchlist}</span></a>
+    <a href="#history" class="main-navigation__item">History <span class="main-navigation__item-count">${history}</span></a>
+    <a href="#favorites" class="main-navigation__item">Favorites <span class="main-navigation__item-count">${favorites}</span></a>
     <a href="#stats" class="main-navigation__item main-navigation__item--additional">Stats</a>
   </nav>
   <ul class="sort">
@@ -254,10 +199,87 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (() => `<section class="header__profile profile">
-    <p class="profile__rating">Movie Buff</p>
-    <img class="profile__avatar" src="images/bitmap@2x.png" alt="Avatar" width="35" height="35">
+/* harmony default export */ __webpack_exports__["default"] = (({
+  rating,
+  avatar
+}) => `<section class="header__profile profile">
+    <p class="profile__rating">${rating}</p>
+    <img class="profile__avatar" src="${avatar}" alt="Avatar" width="35" height="35">
   </section>`);
+
+
+/***/ }),
+
+/***/ "./src/datas/cards-data.js":
+/*!*********************************!*\
+  !*** ./src/datas/cards-data.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const randMaxMin = (min, max) => min + Math.round(Math.random() * (max - min));
+const allFilmCards = [];
+const genres = [`Musical`, `Western`, `Drama`, `Comedy`, `Cartoon`, `Mystery`];
+const names = [`The Godfather`, `The Shawshank Redemption`, `Pulp FIction`, `Star Wars: Episode II`, `The Dark Knight`, `The Matrix`, `Star Wars: Episode V - The Empire Strikes Back`, `Fight Club`, `Back to the Future`, `The Lord of the Rings - The Return of the King`, `The Good, The Bad & The Ugly`];
+const posters = [`made-for-each-other.png`, `popeye-meets-sinbad.png`, `sagebrush-trail.jpg`, `santa-claus-conquers-the-martians.jpg`, `the-dance-of-life.jpg`, `the-great-flamarion.jpg`, `the-man-with-the-golden-arm.jpg`];
+names.forEach((item) => {
+  allFilmCards.push({
+    title: item,
+    rating: `${(Math.random()*10).toFixed(1)}`,
+    info: {
+      year: randMaxMin(1900, 2019),
+      duration: randMaxMin(6000000, 8000000),
+      genre: genres[randMaxMin(0, genres.length)],
+      durationInHM() {
+        return `${Math.floor(this.duration/1000/60/60)}h ${Math.round(this.duration/1000/60%60)}m`
+      },
+    },
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras aliquet varius magna, non porta ligula feugiat eget. Fusce tristique felis at fermentum pharetra. Aliquam id orci ut lectus varius viverra. Nullam nunc ex, convallis sed finibus eget, sollicitudin eget ante. Phasellus eros mauris, condimentum sed nibh vitae, sodales efficitur ipsum. Sed blandit, eros vel aliquam faucibus, purus ex euismod diam, eu luctus nunc ante ut dui. Sed sed nisi sed augue convallis suscipit in sed felis. Aliquam erat volutpat. Nunc fermentum tortor ac porta dapibus. In rutrum ac purus sit amet tempus`,
+    poster: posters[Math.round(Math.random() * posters.length)],
+    comments: [{},
+      {},
+      {},
+      {}]
+  });
+});
+/* harmony default export */ __webpack_exports__["default"] = (allFilmCards);
+
+
+/***/ }),
+
+/***/ "./src/datas/menu-data.js":
+/*!********************************!*\
+  !*** ./src/datas/menu-data.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  watchlist: 13,
+  history: 4,
+  favorites: 8,
+});
+
+
+/***/ }),
+
+/***/ "./src/datas/profile-data.js":
+/*!***********************************!*\
+  !*** ./src/datas/profile-data.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  rating: `Movie Buff`,
+  avatar: `images/bitmap@2x.png`
+});
 
 
 /***/ }),
@@ -276,6 +298,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_menu_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/menu.js */ "./src/components/menu.js");
 /* harmony import */ var _components_film_card_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/film-card.js */ "./src/components/film-card.js");
 /* harmony import */ var _components_show_more_button_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/show-more-button.js */ "./src/components/show-more-button.js");
+/* harmony import */ var _datas_cards_data_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./datas/cards-data.js */ "./src/datas/cards-data.js");
+/* harmony import */ var _datas_menu_data_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./datas/menu-data.js */ "./src/datas/menu-data.js");
+/* harmony import */ var _datas_profile_data_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./datas/profile-data.js */ "./src/datas/profile-data.js");
+
+
+
 
 
 
@@ -290,8 +318,8 @@ const renderComponent = (container, component, position) => {
 };
 
 renderComponent(header, Object(_components_search_js__WEBPACK_IMPORTED_MODULE_0__["default"])(), `beforeEnd`);
-renderComponent(header, Object(_components_user_info_js__WEBPACK_IMPORTED_MODULE_1__["default"])(), `beforeEnd`);
-renderComponent(main, Object(_components_menu_js__WEBPACK_IMPORTED_MODULE_2__["default"])(), `beforeEnd`);
+renderComponent(header, Object(_components_user_info_js__WEBPACK_IMPORTED_MODULE_1__["default"])(_datas_profile_data_js__WEBPACK_IMPORTED_MODULE_7__["default"]), `beforeEnd`);
+renderComponent(main, Object(_components_menu_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_datas_menu_data_js__WEBPACK_IMPORTED_MODULE_6__["default"]), `beforeEnd`);
 renderComponent(main, `<section class="films">
     <section class="films-list">
       <h2 class="films-list__title visually-hidden">All movies. Upcoming</h2>
@@ -308,13 +336,26 @@ renderComponent(main, `<section class="films">
       </section>`, `beforeEnd`);
 const filmContainers = document.querySelectorAll(`.films-list__container`);
 for (let i = 0; i < 5; i++) {
-  renderComponent(filmContainers[0], Object(_components_film_card_js__WEBPACK_IMPORTED_MODULE_3__["default"])(), `beforeEnd`);
+  renderComponent(filmContainers[0], Object(_components_film_card_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_datas_cards_data_js__WEBPACK_IMPORTED_MODULE_5__["default"][i]), `beforeEnd`);
   if (i < 2) {
-    renderComponent(filmContainers[1], Object(_components_film_card_js__WEBPACK_IMPORTED_MODULE_3__["default"])(), `beforeEnd`);
-    renderComponent(filmContainers[2], Object(_components_film_card_js__WEBPACK_IMPORTED_MODULE_3__["default"])(), `beforeEnd`);
+    renderComponent(filmContainers[1], Object(_components_film_card_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_datas_cards_data_js__WEBPACK_IMPORTED_MODULE_5__["default"][i]), `beforeEnd`);
+    renderComponent(filmContainers[2], Object(_components_film_card_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_datas_cards_data_js__WEBPACK_IMPORTED_MODULE_5__["default"][i]), `beforeEnd`);
   }
 }
 renderComponent(filmContainers[0], Object(_components_show_more_button_js__WEBPACK_IMPORTED_MODULE_4__["default"])(), `afterEnd`);
+
+const moreBtn = document.querySelector(`.films-list__show-more`);
+let showedCounter = 5;
+moreBtn.addEventListener(`click`, () => {
+  let tmp = showedCounter + 5;
+  while ((showedCounter < tmp) && (showedCounter < _datas_cards_data_js__WEBPACK_IMPORTED_MODULE_5__["default"].length)) {
+    renderComponent(filmContainers[0], Object(_components_film_card_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_datas_cards_data_js__WEBPACK_IMPORTED_MODULE_5__["default"][showedCounter]), `beforeEnd`);
+    showedCounter++;
+  }
+  if (showedCounter === _datas_cards_data_js__WEBPACK_IMPORTED_MODULE_5__["default"].length) {
+    moreBtn.style.display = `none`;
+  }
+});
 
 
 /***/ })
