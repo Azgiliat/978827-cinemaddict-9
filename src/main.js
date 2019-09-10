@@ -6,9 +6,13 @@ import showMoreBtn from './components/show-more-button.js';
 import cardData from './datas/cards-data.js';
 import menuData from './datas/menu-data.js';
 import profileData from './datas/profile-data.js';
+import filmDetail from './components/film-details.js';
 
+const body = document.querySelector(`body`);
 const header = document.querySelector(`.header`);
 const main = document.querySelector(`main`);
+const footer = document.querySelector(`footer`);
+const SHOWED_BY_STEP = 5;
 
 const renderComponent = (container, component, position) => {
   container.insertAdjacentHTML(position, component);
@@ -31,7 +35,9 @@ renderComponent(main, `<section class="films">
         <div class="films-list__container">
         </div>
       </section>`, `beforeEnd`);
+
 const filmContainers = document.querySelectorAll(`.films-list__container`);
+
 for (let i = 0; i < 5; i++) {
   renderComponent(filmContainers[0], showFilmCard(cardData[i]), `beforeEnd`);
   if (i < 2) {
@@ -42,14 +48,19 @@ for (let i = 0; i < 5; i++) {
 renderComponent(filmContainers[0], showMoreBtn(), `afterEnd`);
 
 const moreBtn = document.querySelector(`.films-list__show-more`);
-let showedCounter = 5;
+let showedCounter = SHOWED_BY_STEP;
 moreBtn.addEventListener(`click`, () => {
-  let tmp = showedCounter + 5;
-  while ((showedCounter < tmp) && (showedCounter < cardData.length)) {
-    renderComponent(filmContainers[0], showFilmCard(cardData[showedCounter]), `beforeEnd`);
-    showedCounter++;
+  let forShowCards = cardData.slice(showedCounter, showedCounter + SHOWED_BY_STEP);
+  if (forShowCards.length !== 0) {
+    forShowCards.forEach((item) => {
+      renderComponent(filmContainers[0], showFilmCard(item), `beforeEnd`);
+      showedCounter++;
+    });
   }
-  if (showedCounter === cardData.length) {
+  if (forShowCards.length !== SHOWED_BY_STEP) {
     moreBtn.style.display = `none`;
   }
 });
+
+footer.querySelector(`.footer__statistics`).textContent = `${cardData.length} movies inside`;
+renderComponent(body, filmDetail(cardData[0], []), `beforeEnd`);
